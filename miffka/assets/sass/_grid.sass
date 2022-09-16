@@ -1,0 +1,29 @@
+*
+ box-sizing: border-box 
+main
+  min-height: 70vh
+  &:not(.home-page):not(.page-blog)
+    padding-top: 85px
+.container 
+ max-width: 1450px
+ margin: auto
+@media ( max-width: 1550px )
+  .container 
+    max-width: 1250px
+    margin: auto
+@media ( max-width: 1350px )
+  .container 
+    max-width: 960px
+    margin: auto
+@media ( max-width: 991px )
+  .container 
+    max-width: 750px
+    margin: auto
+@media ( max-width: 790px )
+  .container 
+    max-width: 100%
+    margin: 0 22px
+@media ( max-width: 470px )
+  .container 
+    max-width: 100%
+    margin: 0 22px

@@ -1,0 +1,279 @@
+.header
+  position: fixed
+  width: 100%
+  z-index: 55
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(15,15,15,1) 100%)
+  transition: all .6s
+  &.active
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(15,15,15,1) 100%)
+    transition: all .6s
+.navbar
+  background-color: rgba($grey-light,0)
+  &-wrap
+    display: flex
+    align-items: center
+    justify-content: space-between
+    min-height: 84px
+  &__menu
+    display: flex
+    &__mobile_button
+      display: none
+      opacity: 0
+      visibility: hidden
+      span
+        width: 27px
+        height: 2px
+        background-color: $t-c
+        border-radius: 22px
+    .main-menu
+      display: flex
+      height: 84px
+      transition: all .6s
+      .menu-item
+        display: flex
+        padding: 0 24px
+        align-items: center
+        transition: all .6s
+        &:last-child
+          padding-right: 0
+        a   
+          display: flex
+          height: 100%
+          align-items: center
+          position: relative
+          color: $t-c
+          &::before
+            position: absolute
+            content: ""
+            height: 5px
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+            width: 0
+            background: $white
+            transition: all .6s
+          &:hover
+            &::before
+              width: 100%
+        &-last
+          position: relative
+          &::before
+            position: absolute
+            content: ""
+            background-color: rgba($t-c,.5)
+            width: 1px
+            height: 24px
+            top: 50%
+            left: 0
+            transform: translateY(-50%)
+        &-last > a::after
+          content: ""
+          width: 10px
+          height: 5px
+          background-image: url("../img/icons/arrow.svg")
+          background-position: center
+          background-repeat: no-repeat
+          background-size: cover
+          transform: rotate(-90deg)
+          margin-left: 8px
+        .sub-menu
+          visibility: hidden
+          opacity: 0
+          transition: all .6s
+          display: none
+          flex-direction: column
+          align-items: stretch
+          position: absolute
+          top: 84px
+          min-width: 250px
+          text-align: left
+          box-shadow: 0px 0px 25px rgba(black, 0.15)
+          li
+            padding: 0
+            position: relative
+          a
+            display: block
+            padding: 22px 36px
+            width: 100%
+            background-color: $grey-light
+            text-transform: capitalize
+            border-bottom: 1px solid rgba($grey-regular,.3)
+          .menu-item-has-children > a::after
+            content: ""
+            width: 10px
+            height: 5px
+            background-image: url("../img/icons/arrow.svg")
+            background-position: center
+            background-repeat: no-repeat
+            background-size: cover
+            margin-left: 8px
+            position: absolute
+            right: 10px
+            top: 50%
+            transform: rotate(-90deg)
+            transform: translateY(-50%)rotate(-90deg)
+          .menu-item > .sub-menu
+            left: 270px
+            top: 0
+        &:hover > .sub-menu
+          visibility: visible
+          opacity: 1
+          display: flex
+          transition: all .6s
+      .menu-item-has-children > a::after
+        content: ""
+        width: 10px
+        height: 5px
+        background-image: url("../img/icons/arrow.svg")
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        margin-left: 8px
+    &-contacts
+      display: flex
+      flex-wrap: wrap
+      flex-direction: column
+      padding-left: 50px
+      justify-content: center
+      .header-content__phone
+        font-size: 16px
+        line-height: 19px
+      .header-content__email
+        font-size: 16px
+        line-height: 19px
+@media ( max-width: 1250px )
+  .navbar
+    &__menu
+      position: relative
+      &-contacts
+        display: none
+@media ( max-width: 991px )
+  .navbar
+    .logo
+      max-width: 150px
+      img
+        max-width: 100%
+    &-wrap
+      min-height: 51px
+    &__menu
+      position: relative
+      &__mobile_button
+        display: flex
+        opacity: 1
+        visibility: visible
+        flex-direction: column
+        height: 51px
+        justify-content: center
+        align-items: center
+        span
+          width: 27px
+          height: 2px
+          background-color: $t-c
+          border-radius: 22px
+          margin: 2px 0
+      .main-menu
+        display: none
+        opacity: 0
+        visibility: hidden
+        height: 0
+        flex-direction: column
+        position: absolute
+        top: 51px
+        right: 0
+        transition: all .4s
+        width: 280px
+        .menu-item-has-children > a::after
+          content: ""
+          width: 10px
+          height: 5px
+          background-image: url("../img/icons/arrow.svg")
+          background-position: center
+          background-repeat: no-repeat
+          background-size: cover
+          margin-left: 8px
+          display: block
+          position: absolute
+          right: 0
+          top: 50%
+          transform: translateY(-50%)
+          right: 10px
+          transition: all .6s
+        .menu-item-has-children.open > a::after
+          transform: translateY(-50%) rotate(180deg)
+          transition: all .6s
+        &.open
+          display: flex
+          opacity: 1
+          visibility: visible
+          height: auto
+          flex-direction: column
+          transition: all .4s
+          a
+            display: block
+            padding: 12px 18px
+            width: 100%
+            background-color: $grey-light
+            border-bottom: 1px solid rgba($grey-regular,.3)
+          .sub-menu
+            visibility: visible
+            opacity: 1
+            transition: all .6s
+            display: none
+            flex-direction: column
+            align-items: stretch
+            position: relative
+            top: 0
+            min-width: 100%
+            text-align: left
+            box-shadow: 0px 0px 25px rgba(black, 0.15)
+            &.open
+              display: flex
+              opacity: 1
+              visibility: visible
+            a
+              display: block
+              padding: 12px 18px
+              width: 100%
+              background-color: $grey-light
+              border-bottom: 1px solid rgba($grey-regular,.3)
+              &:last-child
+                border-bottom: none
+          .menu-item
+            flex-direction: column
+            padding: 0
+            .menu-item-has-children
+              .sub-menu
+                visibility: visible
+                opacity: 1
+                left: 0
+            &.menu-item-has-children > a::after
+              content: ""
+              width: 10px
+              height: 5px
+              background-image: url("../img/icons/arrow.svg")
+              background-position: center
+              background-repeat: no-repeat
+              background-size: cover
+              margin-left: 8px
+              display: block
+              position: absolute
+              right: 0
+              top: 50%
+              transform: translateY(-50%)
+              right: 10px
+              transition: all .6s
+            &.menu-item-has-children.open > a::after
+              transform: translateY(-50%) rotate(180deg)
+              transition: all .6s
+@media ( max-width: 400px )
+  .header
+    .navbar
+      .logo
+        max-width: 150px
+        img
+          max-width: 100%
+      &__menu
+        position: unset
+        .main-menu
+          min-width: 100%
+          right: 0
