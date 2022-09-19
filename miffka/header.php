@@ -42,7 +42,7 @@
 			endif;
 			*/ ?>
 
-    <header class="header" test5>
+    <header class="header">
       <div class="navbar">
         <div class="container">
           <div class="navbar-wrap">
